@@ -24,7 +24,7 @@ os.environ['TRANSFORMERS_CACHE'] = os.path.join(VOLUME_PATH, ".cache", "transfor
 os.environ['HF_DATASETS_CACHE'] = os.path.join(VOLUME_PATH, ".cache", "datasets")
 
 # Models directory
-MODELS_DIR = os.path.join(VOLUME_PATH, "models")
+MODELS_DIR = os.path.join(VOLUME_PATH, "flux-models")
 
 # Initialize the pipeline globally
 pipe = None
