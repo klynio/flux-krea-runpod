@@ -5,7 +5,7 @@ echo "=== Initializing RunPod Volume ==="
 
 # Define paths
 VOLUME_PATH="/runpod-volume"
-VENV_PATH="$VOLUME_PATH/flux-venv"
+VENV_PATH="$VOLUME_PATH/fluxvenv"
 MODELS_PATH="$VOLUME_PATH/flux-models"
 CACHE_PATH="$VOLUME_PATH/.cache"
 

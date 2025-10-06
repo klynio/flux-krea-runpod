@@ -16,36 +16,20 @@ COPY requirements.txt .
 COPY scripts/init_volume.sh /app/scripts/
 RUN chmod +x /app/scripts/init_volume.sh
 
+# Copy startup script
+COPY scripts/start.sh /start.sh
+RUN chmod +x /start.sh
+
 # Copy source code
 COPY src/ ./src/
 
 # Set environment variables for volume paths
 ENV VOLUME_PATH=/runpod-volume
-ENV VENV_PATH=/runpod-volume/venv
+ENV VENV_PATH=/runpod-volume/fluxvenv
 ENV MODELS_PATH=/runpod-volume/flux-models
 ENV HF_HOME=/runpod-volume/.cache/huggingface
 ENV TRANSFORMERS_CACHE=/runpod-volume/.cache/transformers
 ENV HF_DATASETS_CACHE=/runpod-volume/.cache/datasets
-
-# Create a startup script that initializes volume and runs handler
-RUN echo '#!/bin/bash\n\
-set -e\n\
-\n\
-# Initialize volume if needed\n\
-if [ ! -f "/runpod-volume/.initialized" ]; then\n\
-    echo "First run: Initializing volume..."\n\
-    /app/scripts/init_volume.sh\n\
-    touch /runpod-volume/.initialized\n\
-else\n\
-    echo "Volume already initialized"\n\
-fi\n\
-\n\
-# Activate volume venv\n\
-source /runpod-volume/venv/bin/activate\n\
-\n\
-# Run handler\n\
-python -u /app/src/handler.py\n\
-' > /start.sh && chmod +x /start.sh
 
 # Use the startup script
 CMD ["/start.sh"]

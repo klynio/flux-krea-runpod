@@ -4,7 +4,7 @@ import sys
 # Add volume venv to path FIRST
 VOLUME_PATH = "/runpod-volume"
 VENV_PATH = os.path.join(VOLUME_PATH, "venv")
-VENV_SITE_PACKAGES = os.path.join(VENV_PATH, "lib", "python3.10", "site-packages")
+VENV_SITE_PACKAGES = os.path.join(VENV_PATH, "lib", "python3.11", "site-packages")
 
 # Prepend to sys.path to prioritize volume packages
 if os.path.exists(VENV_SITE_PACKAGES):
