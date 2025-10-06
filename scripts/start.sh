@@ -11,7 +11,7 @@ else
 fi
 
 # Activate volume venv
-source /runpod-volume/venv/bin/activate
+source /runpod-volume/fluxvenv/bin/activate
 
 # Run handler
 python -u /app/src/handler.py

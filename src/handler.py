@@ -3,7 +3,7 @@ import sys
 
 # Add volume venv to path FIRST
 VOLUME_PATH = "/runpod-volume"
-VENV_PATH = os.path.join(VOLUME_PATH, "venv")
+VENV_PATH = os.path.join(VOLUME_PATH, "fluxvenv")
 VENV_SITE_PACKAGES = os.path.join(VENV_PATH, "lib", "python3.11", "site-packages")
 
 # Prepend to sys.path to prioritize volume packages
